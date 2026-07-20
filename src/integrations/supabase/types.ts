@@ -14,7 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      menu_items: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          id: string
+          image_url: string | null
+          name: string
+          price_cents: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          name: string
+          price_cents: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          name?: string
+          price_cents?: number
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          created_at: string
+          delivery_address: string
+          id: string
+          items: Json
+          phone: string
+          status: string
+          total_cents: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          delivery_address: string
+          id?: string
+          items: Json
+          phone: string
+          status?: string
+          total_cents: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          delivery_address?: string
+          id?: string
+          items?: Json
+          phone?: string
+          status?: string
+          total_cents?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          address: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          phone?: string | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

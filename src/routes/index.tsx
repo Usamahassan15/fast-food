@@ -16,7 +16,19 @@ import promo2 from "@/assets/promo2.jpg";
 import promo3 from "@/assets/promo3.jpg";
 import mobileApp from "@/assets/mobile-app.jpg";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: "Slice & Co — hot stone-baked pizza, delivered fast" },
+      { name: "description", content: "Order stone-baked pizza, saucy wings, loaded sides and cold drinks from Slice & Co. Delivery or pick-up, with live order tracking." },
+      { property: "og:title", content: "Slice & Co — hot stone-baked pizza, delivered fast" },
+      { property: "og:description", content: "Pizza, wings, sides and drinks. Delivery or pick-up with live order tracking." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+});
 
 const categories = [
   { name: "Pizzas", img: catPizza },

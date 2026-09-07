@@ -10,6 +10,16 @@ type Search = { next?: string };
 
 export const Route = createFileRoute("/auth")({
   component: AuthPage,
+  head: () => ({
+    meta: [
+      { title: "Sign in or create an account — Slice & Co" },
+      { name: "description", content: "Sign in to Slice & Co to place orders, save your delivery details and track every order from the kitchen to your door." },
+      { property: "og:title", content: "Sign in — Slice & Co" },
+      { property: "og:description", content: "Sign in to order and track your Slice & Co deliveries." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   validateSearch: (s: Record<string, unknown>): Search => ({ next: typeof s.next === "string" ? s.next : undefined }),
 });
 

@@ -6,7 +6,27 @@ import { useAuth } from "@/lib/auth";
 import { SiteHeader } from "@/components/SiteHeader";
 import { formatPrice } from "@/lib/format";
 
-export const Route = createFileRoute("/orders")({ component: OrdersPage });
+export const Route = createFileRoute("/orders")({
+  component: OrdersPage,
+  head: () => ({
+    meta: [
+      { title: "Your orders — Slice & Co" },
+      { name: "description", content: "Track your Slice & Co orders: see what you ordered, the delivery address and the live status of each order." },
+      { property: "og:title", content: "Your orders — Slice & Co" },
+      { property: "og:description", content: "Track the live status of your Slice & Co orders." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+});
+
+const STATUS_STYLE: Record<string, string> = {
+  pending: "bg-brand text-brand-foreground",
+  preparing: "bg-brand text-brand-foreground",
+  out_for_delivery: "bg-accent text-accent-foreground",
+  delivered: "bg-muted text-foreground",
+  cancelled: "bg-muted text-muted-foreground line-through",
+};
 
 type OrderItem = { id: string; name: string; qty: number; price_cents: number };
 
@@ -47,7 +67,7 @@ function OrdersPage() {
                       <div className="text-xs uppercase tracking-widest text-muted-foreground">Order #{o.id.slice(0, 8)}</div>
                       <div className="mt-1 text-sm">{new Date(o.created_at).toLocaleString()}</div>
                     </div>
-                    <span className="rounded-full bg-brand px-3 py-1 text-xs font-bold uppercase tracking-wider">{o.status}</span>
+                    <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${STATUS_STYLE[o.status] ?? "bg-brand text-brand-foreground"}`}>{o.status.replace(/_/g, " ")}</span>
                   </div>
                   <ul className="mt-3 divide-y divide-border">
                     {items.map((it, idx) => (

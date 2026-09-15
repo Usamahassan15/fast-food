@@ -1,24 +1,50 @@
-# Fast Food
+# Fast Food Website
 
-https://cheezious.com/    clone this exact website
+A modern, responsive fast-food restaurant website built with **TypeScript, React, and modern web technologies**.
 
-This project was built with [Lovable](https://lovable.dev).
+## Features
 
-## Build with Lovable
+* Responsive modern UI
+* Restaurant menu and product sections
+* Product details
+* Online ordering interface
+* Shopping cart functionality
+* Responsive navigation
+* Mobile-friendly design
+* Modern animations and interactions
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/567f515d-003e-4b07-953f-19762f0111e3).
+## Tech Stack
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+* TypeScript
+* React
+* Tailwind CSS
+* Vite
+* HTML5
+* CSS3
 
-## Development
+## Getting Started
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Clone the repository
 
-```sh
-git clone <this-repository-url>
+```bash
+git clone <repository-url>
 cd <repository-name>
-npm i
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
+
+```bash
 npm run dev
 ```
+
+The application will be available at the local development URL shown in your terminal.
+
+## Project Purpose
+
+This project was developed as a frontend web development project to demonstrate skills in **TypeScript, React, responsive UI development, component-based architecture, and modern web development practices**.
